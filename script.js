@@ -12,11 +12,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const skillTracks = document.querySelectorAll(".skill-track");
   const contactForm = document.getElementById("contactForm");
   const formStatus = document.getElementById("formStatus");
+  const projectSubmissionForm = document.getElementById("projectSubmissionForm");
+  const projectFormStatus = document.getElementById("projectFormStatus");
   const yearEl = document.getElementById("year");
 
   const EMAILJS_SERVICE_ID = "service_id_here";
   const EMAILJS_TEMPLATE_ID = "template_id_here";
   const EMAILJS_PUBLIC_KEY = "public_key_here";
+  
+  // Project Submission Form EmailJS Configuration
+  // Replace these placeholders with your actual EmailJS credentials:
+  // - YOUR_PUBLIC_KEY_HERE: Get this from EmailJS Dashboard > Account > API Keys > Public Key
+  // - YOUR_SERVICE_ID: Get this from EmailJS Dashboard > Email Services (create a service if needed)
+  // - YOUR_TEMPLATE_ID: Get this from EmailJS Dashboard > Email Templates (create a template with fields: from_name, reply_to, project_idea)
+  const PROJECT_FORM_SERVICE_ID = "service_1sr29p3";
+  const PROJECT_FORM_TEMPLATE_ID = "template_k3lm0k6";
+  const PROJECT_FORM_PUBLIC_KEY = "ecoXw-7bPlc0ylqFs";
+  
+  // Initialize EmailJS once for all forms
+  // Initialize EmailJS with the public key
+  let emailjsInitialized = false;
+  if (window.emailjs) {
+    try {
+      // EmailJS v3 initialization - pass public key to init
+      emailjs.init({
+        publicKey: PROJECT_FORM_PUBLIC_KEY
+      });
+      emailjsInitialized = true;
+      console.log("EmailJS initialized successfully with public key");
+    } catch (error) {
+      console.error("Failed to initialize EmailJS:", error);
+      // Try alternative initialization method
+      try {
+        emailjs.init(PROJECT_FORM_PUBLIC_KEY);
+        emailjsInitialized = true;
+        console.log("EmailJS initialized with alternative method");
+      } catch (err2) {
+        console.error("Alternative initialization also failed:", err2);
+      }
+    }
+  } else {
+    console.warn("EmailJS library not loaded");
+  }
 
   /* ---------- Helpers ---------- */
   const setThemeIcon = (mode) => {
@@ -124,8 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Contact form (EmailJS) ---------- */
   if (contactForm && window.emailjs) {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-
     contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       formStatus.textContent = "Sending...";
@@ -149,6 +184,87 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   } else if (contactForm) {
     formStatus.textContent = "EmailJS failed to load. Refresh to try again.";
+  }
+
+  /* ---------- Project Submission Form (EmailJS) ---------- */
+  // EmailJS is initialized above for all forms
+  if (projectSubmissionForm) {
+    projectSubmissionForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      
+      // Check if EmailJS is available and initialized
+      if (!window.emailjs || !emailjsInitialized) {
+        projectFormStatus.textContent = "✗ EmailJS not loaded. Please refresh the page and try again.";
+        projectFormStatus.className = "text-sm text-red-400 mt-3";
+        return;
+      }
+      
+      // Show loading state
+      projectFormStatus.textContent = "Sending your project idea...";
+      projectFormStatus.className = "text-sm text-white/60 mt-3";
+      
+      const submitButton = projectSubmissionForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.textContent;
+      submitButton.textContent = "Sending...";
+      submitButton.disabled = true;
+
+      // Get form data
+      const formData = new FormData(projectSubmissionForm);
+      const name = formData.get("name");
+      const email = formData.get("email");
+      const projectIdea = formData.get("projectIdea");
+      
+      // Validate form data
+      if (!name || !email || !projectIdea) {
+        projectFormStatus.textContent = "✗ Please fill in all fields.";
+        projectFormStatus.className = "text-sm text-red-400 mt-3";
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+        return;
+      }
+      
+      const templateParams = {
+        from_name: name,
+        reply_to: email,
+        project_idea: projectIdea,
+      };
+
+      try {
+        console.log("Sending email with params:", templateParams);
+        console.log("Service ID:", PROJECT_FORM_SERVICE_ID);
+        console.log("Template ID:", PROJECT_FORM_TEMPLATE_ID);
+        
+        // Send email using EmailJS
+        const response = await emailjs.send(PROJECT_FORM_SERVICE_ID, PROJECT_FORM_TEMPLATE_ID, templateParams);
+        console.log("EmailJS response:", response);
+        
+        // Success: show message and clear form
+        projectFormStatus.textContent = "✓ Project idea submitted successfully! I'll review it and get back to you soon.";
+        projectFormStatus.className = "text-sm text-brand-accent mt-3";
+        projectSubmissionForm.reset();
+        
+        // Reset button
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+      } catch (error) {
+        console.error("EmailJS Error Details:", error);
+        console.error("Error Code:", error.code);
+        console.error("Error Text:", error.text);
+        
+        // Error: show error message
+        let errorMessage = "✗ Failed to submit. ";
+        if (error.text) {
+          errorMessage += error.text + " ";
+        }
+        errorMessage += "Please try again or email me directly at abrahamkwesijames@gmail.com";
+        projectFormStatus.textContent = errorMessage;
+        projectFormStatus.className = "text-sm text-red-400 mt-3";
+        
+        // Reset button
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+      }
+    });
   }
 
   /* ---------- Misc ---------- */
