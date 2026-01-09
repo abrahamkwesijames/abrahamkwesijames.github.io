@@ -55,12 +55,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     },
-    { threshold: 0.35 }
+    { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
   );
 
   sections.forEach((section) => {
     sectionObserver.observe(section);
   });
+
+  // Ensure gallery section is visible on mobile after a short delay if intersection observer hasn't triggered
+  const gallerySection = document.getElementById("gallery");
+  if (gallerySection && window.innerWidth <= 768) {
+    setTimeout(() => {
+      const rect = gallerySection.getBoundingClientRect();
+      const isNearViewport = rect.top < window.innerHeight + 200;
+      if (isNearViewport && !gallerySection.classList.contains("visible")) {
+        gallerySection.classList.add("visible");
+      }
+    }, 500);
+  }
 
   /* ---------- Skill animation ---------- */
   const skillObserver = new IntersectionObserver(
