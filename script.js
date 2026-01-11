@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // - YOUR_TEMPLATE_ID: Get this from EmailJS Dashboard > Email Templates (create a template with fields: from_name, reply_to, project_idea)
   const PROJECT_FORM_SERVICE_ID = "service_1sr29p3";
   const PROJECT_FORM_TEMPLATE_ID = "template_k3lm0k6";
-  const PROJECT_FORM_PUBLIC_KEY = "oXqXqaAuLJ9xONJA9";
+  const PROJECT_FORM_PUBLIC_KEY = "iCXkA9zlHk50vr52L";
   
   // Initialize EmailJS once for all forms
   // Initialize EmailJS with the public key
