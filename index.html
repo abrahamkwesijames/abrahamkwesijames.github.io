@@ -1,663 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abraham Kwesi James | Portfolio</title>
-    <meta
-      name="description"
-      content="Portfolio for Abraham Kwesi James - medical laboratory science student, developer, and digital product builder."
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              grotesk: ['"Space Grotesk"', "system-ui", "sans-serif"],
-            },
-            colors: {
-              brand: {
-                dark: "#050505",
-                light: "#f5f5f5",
-                accent: "#4ade80",
-              },
-            },
-            boxShadow: {
-              glass: "0 25px 50px -12px rgba(0,0,0,0.35)",
-            },
-            keyframes: {
-              float: {
-                "0%,100%": { transform: "translateY(0px)" },
-                "50%": { transform: "translateY(-6px)" },
-              },
-              fadeUp: {
-                "0%": { opacity: 0, transform: "translateY(20px)" },
-                "100%": { opacity: 1, transform: "translateY(0)" },
-              },
-            },
-            animation: {
-              float: "float 6s ease-in-out infinite",
-              fadeUp: "fadeUp 1s ease forwards",
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abraham Kwesi James | Portfolio</title>
+  <meta name="description"
+    content="Portfolio for Abraham Kwesi James - medical laboratory science student, developer, and digital product builder." />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Abraham Kwesi James | Portfolio">
+  <meta property="og:description" content="Medical Lab Science student, developer, and digital product builder.">
+  <meta property="og:image" content="assets/images/hero-photo.jpg">
+  <meta property="og:type" content="website">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Abraham Kwesi James | Portfolio">
+  <meta name="twitter:description" content="Medical Lab Science student, developer, and digital product builder.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            grotesk: ['"Space Grotesk"', "system-ui", "sans-serif"],
+          },
+          colors: {
+            brand: {
+              dark: "#050505",
+              light: "#f5f5f5",
+              accent: "#4ade80",
             },
           },
+          boxShadow: {
+            glass: "0 25px 50px -12px rgba(0,0,0,0.35)",
+          },
+          keyframes: {
+            float: {
+              "0%,100%": { transform: "translateY(0px)" },
+              "50%": { transform: "translateY(-6px)" },
+            },
+            fadeUp: {
+              "0%": { opacity: 0, transform: "translateY(20px)" },
+              "100%": { opacity: 1, transform: "translateY(0)" },
+            },
+          },
+          animation: {
+            float: "float 6s ease-in-out infinite",
+            fadeUp: "fadeUp 1s ease forwards",
+          },
         },
-      };
-    </script>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body class="bg-brand-dark text-white font-grotesk">
-    <header
-      class="fixed inset-x-0 top-0 z-50 bg-brand-dark/80 backdrop-blur border-b border-white/5"
-    >
-      <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" class="text-xl font-semibold tracking-tight"
-          >AKJ<span class="text-brand-accent">.</span></a
-        >
-        <nav
-          id="navMenu"
-          class="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase"
-        >
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#experience" class="nav-link">Experience</a>
-          <a href="#education" class="nav-link">Education</a>
-          <a href="#gallery" class="nav-link">Gallery</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-        <div class="flex items-center gap-4">
-          <button
-            id="themeToggle"
-            class="p-2 rounded-full border border-white/10 hover:border-brand-accent transition-colors"
-            aria-label="Toggle theme"
-          >
-            <span data-theme-icon>☾</span>
-          </button>
-          <button
-            class="md:hidden p-2 rounded border border-white/10"
-            id="menuToggle"
-            aria-label="Toggle navigation"
-          >
-            <span class="sr-only">Open Menu</span>
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <nav
-        id="mobileMenu"
-        class="md:hidden hidden border-t border-white/10 bg-brand-dark/95 backdrop-blur"
-      >
-        <div class="flex flex-col px-6 py-4 space-y-3 text-sm uppercase">
-          <a href="#hero" class="nav-link">Home</a>
-          <a href="#about" class="nav-link">About</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="#experience" class="nav-link">Experience</a>
-          <a href="#education" class="nav-link">Education</a>
-          <a href="#gallery" class="nav-link">Gallery</a>
-          <a href="#contact" class="nav-link">Contact</a>
-        </div>
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-brand-dark text-white font-grotesk">
+  <header class="fixed inset-x-0 top-0 z-50 bg-brand-dark/80 backdrop-blur border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#" class="text-xl font-semibold tracking-tight">AKJ<span class="text-brand-accent">.</span></a>
+      <nav id="navMenu" class="hidden md:flex items-center gap-8 text-sm tracking-wide uppercase">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
-    </header>
+      <div class="flex items-center gap-4">
+        <button id="themeToggle"
+          class="p-2 rounded-full border border-white/10 hover:border-brand-accent transition-colors"
+          aria-label="Toggle theme">
+          <span data-theme-icon>☾</span>
+        </button>
+        <button class="md:hidden p-2 rounded border border-white/10" id="menuToggle" aria-label="Toggle navigation">
+          <span class="sr-only">Open Menu</span>
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <nav id="mobileMenu" class="md:hidden hidden border-t border-white/10 bg-brand-dark/95 backdrop-blur">
+      <div class="flex flex-col px-6 py-4 space-y-3 text-sm uppercase">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <main class="pt-20">
-      <!-- Hero -->
-      <section
-        id="hero"
-        class="reveal max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center"
-      >
-        <div class="space-y-6 animate-fadeUp">
-          <p class="uppercase tracking-[0.3em] text-brand-accent text-xs">
-            Medical Lab Science × Technology
-          </p>
-          <h1 class="text-4xl sm:text-5xl font-semibold leading-tight">
-            Hi, I’m <span class="text-brand-accent">Abraham Kwesi James</span>
-          </h1>
-          <p class="text-xl text-white/70">
-            I'm a Medical Laboratory Science student and tech innovator passionate about solving real-world problems across healthcare, agriculture, business, and beyond.
-          </p>
-          <p class="text-white/60">
-            I build backend systems, AI tools, and software solutions that streamline workflows, accelerate decisions, and empower teams to do more.
-          </p>
-          <div class="flex flex-wrap gap-4">
-            <a
-              href="#"
-              class="px-6 py-3 rounded-full bg-brand-accent text-black font-semibold inline-flex items-center gap-2 shadow-glass hover:-translate-y-0.5 transition"
-              >Download CV</a
-            >
-            <a
-              href="#contact"
-              class="px-6 py-3 rounded-full border border-white/20 hover:border-brand-accent transition inline-flex items-center gap-2"
-              >Contact Me</a
-            >
-          </div>
-          <div class="flex items-center gap-8 text-sm text-white/60">
-            <div>
-              <p class="text-3xl text-white font-semibold">03+</p>
-              <p>Years building products</p>
-            </div>
-            <div>
-              <p class="text-3xl text-white font-semibold">08+</p>
-              <p>Research & lab projects</p>
-            </div>
-          </div>
+  <main class="pt-20">
+    <!-- Hero -->
+    <section id="hero" class="reveal max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-6 animate-fadeUp">
+        <p class="uppercase tracking-[0.3em] text-brand-accent text-xs">
+          Medical Lab Science × Technology
+        </p>
+        <h1 class="text-4xl sm:text-5xl font-semibold leading-tight">
+          Hi, I’m <span class="text-brand-accent">Abraham Kwesi James</span>
+        </h1>
+        <p class="text-xl text-white/70">
+          I'm a Medical Laboratory Science student and tech innovator passionate about solving real-world problems
+          across healthcare, agriculture, business, and beyond.
+        </p>
+        <p class="text-white/60">
+          I build backend systems, AI tools, and software solutions that streamline workflows, accelerate decisions, and
+          empower teams to do more.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="assets/cv.pdf" download
+            class="px-6 py-3 rounded-full bg-brand-accent text-black font-semibold inline-flex items-center gap-2 shadow-glass hover:-translate-y-0.5 transition">Download
+            CV</a>
+          <a href="#contact"
+            class="px-6 py-3 rounded-full border border-white/20 hover:border-brand-accent transition inline-flex items-center gap-2">Contact
+            Me</a>
         </div>
-        <div
-          class="relative w-full h-[420px] rounded-[32px] bg-gradient-to-b from-white/10 to-white/5 border border-white/10 overflow-hidden animate-float"
-        >
-          <!-- Replace 'hero-photo.jpg' with your actual image filename -->
-          <img
-            src="assets/images/hero-photo.jpg"
-            alt="Abraham Kwesi James"
-            class="w-full h-full object-cover rounded-[32px]"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <div
-            class="absolute inset-0 flex items-center justify-center border-2 border-dashed border-white/20 rounded-[28px] m-4"
-            style="display: none;"
-          >
-            <span class="text-white/40 uppercase tracking-[0.3em] text-xs"
-              >Photo Placeholder - Add hero-photo.jpg to assets/images/</span
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- About -->
-      <section id="about" class="reveal py-20 bg-white/5">
-        <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-[1.2fr,0.8fr] gap-12">
-          <div class="space-y-6">
-            <p class="section-label">About Me</p>
-            <h2 class="section-title">Health, code, and the future of care</h2>
-            <p class="leading-relaxed text-white/70">
-              I'm a Medical Laboratory Science student fascinated by how technology can transform the way we solve problems across industries from diagnostics and research to agriculture, business, and beyond. My practice blends scientific rigor with backend development, data engineering, and AI experimentation.
-            </p>
-            <p class="leading-relaxed text-white/70">
-              I build backend services, RESTful APIs, and AI-driven tools that streamline workflows, enable faster decision-making, and help teams stay aligned. I explore machine learning and software solutions that tackle real-world challenges, whether in healthcare, agriculture, finance, or business operations.
-            </p>
-            <p class="leading-relaxed text-white/70">
-              Long-term, I aim to create intelligent, scalable, and innovative systems that empower organizations to leapfrog existing limitations, whether that's predictive analytics for labs, smart solutions for farms, or interoperable tools for businesses and communities. I'm passionate about building products that drive meaningful impact, wherever technology can make a difference.
-            </p>
-          </div>
-          <div
-            class="rounded-3xl border border-white/10 bg-brand-dark/60 p-6 flex flex-col gap-6"
-          >
-            <!-- Replace 'about-photo.jpg' with your actual image filename -->
-            <img
-              src="assets/images/about-photo.jpg"
-              alt="About Abraham"
-              class="rounded-2xl border border-white/10 h-48 w-full object-cover"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-            />
-            <div
-              class="rounded-2xl border border-white/10 h-48 bg-white/10 flex items-center justify-center text-white/40 text-xs tracking-[0.3em]"
-              style="display: none;"
-            >
-              About Photo - Add about-photo.jpg to assets/images/
-            </div>
-            <div class="space-y-2 text-sm">
-              <p class="uppercase text-white/50 tracking-wide">Focus Areas</p>
-              <ul class="space-y-1 text-white/80">
-                <li>Medical Laboratory Science</li>
-                <li>Backend & API Engineering</li>
-                <li>AI-assisted diagnostics</li>
-                <li>Lab Information Systems</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills" class="reveal py-20">
-        <div class="max-w-6xl mx-auto px-6 space-y-12">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-              <p class="section-label">Skills</p>
-              <h2 class="section-title">Technical & behavioral arsenal</h2>
-            </div>
-          </div>
-          <div class="grid lg:grid-cols-2 gap-12">
-            <div class="space-y-6">
-              <h3 class="text-xl font-semibold">Technical Skills</h3>
-              <div class="space-y-5">
-                <!-- skill bars -->
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>Cybersecurity Basics</span>
-                    <span>90%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 90%"></div>
-                  </div>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>Python</span>
-                    <span>70%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 70%"></div>
-                  </div>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>Backend Development</span>
-                    <span>75%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 75%"></div>
-                  </div>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>AI / ML Basics</span>
-                    <span>70%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 70%"></div>
-                  </div>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>Lab Information Systems</span>
-                    <span>88%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 88%"></div>
-                  </div>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>Git & Collaboration</span>
-                    <span>82%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 82%"></div>
-                  </div>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>Cloud Basics</span>
-                    <span>65%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 65%"></div>
-                  </div>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-header">
-                    <span>Databases (SQL)</span>
-                    <span>78%</span>
-                  </div>
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width: 78%"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-6">
-              <h3 class="text-xl font-semibold">Soft Skills</h3>
-              <ul class="grid sm:grid-cols-2 gap-4">
-                <li class="soft-skill">Problem solving</li>
-                <li class="soft-skill">Research & documentation</li>
-                <li class="soft-skill">Critical thinking</li>
-                <li class="soft-skill">Time management</li>
-                <li class="soft-skill">Adaptability</li>
-                <li class="soft-skill">Teamwork</li>
-                <li class="soft-skill">Attention to detail</li>
-                <li class="soft-skill">Scientific communication</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects" class="reveal py-20 bg-white/5">
-        <div class="max-w-6xl mx-auto px-6 space-y-12">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-              <p class="section-label">Projects</p>
-              <h2 class="section-title">Healthcare technology solutions</h2>
-            </div>
-            <a
-              href="#contact"
-              class="underline text-white/70 hover:text-brand-accent text-sm"
-              >Need a collaborator?</a
-            >
-          </div>
-          <div class="flex justify-center">
-            <div class="w-full max-w-2xl">
-              <article class="project-card">
-                <div class="relative w-full rounded-2xl overflow-hidden shadow-glass" style="aspect-ratio: 16 / 9; background: rgba(255, 255, 255, 0.02);">
-                  <img
-                    src="assets/images/Medilab%20LMS.png"
-                    alt="MediLab LMS - Laboratory Management System"
-                    class="absolute inset-0 w-full h-full object-cover object-center"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-                  />
-                  <div class="absolute inset-0 flex items-center justify-center bg-white/5 border border-dashed border-white/15 rounded-2xl" style="display: none;">
-                    <span class="text-white/40 uppercase tracking-[0.2em] text-xs">Screenshot Placeholder - Add Medilab LMS.png to assets/images/</span>
-                  </div>
-                </div>
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between">
-                    <h3 class="text-2xl font-semibold">MediLab LMS</h3>
-                    <span class="px-3 py-1 rounded-full bg-brand-accent/20 text-brand-accent text-xs font-semibold">
-                      In Development
-                    </span>
-                  </div>
-                  <p class="text-white/70">
-                    MediLab LMS is a web-based Laboratory Management System currently under development using Django.
-                    It is designed to help medical laboratories manage patients, test requests, results, verification workflows, and reporting in an efficient and secure way.
-                  </p>
-                  <p class="text-sm text-white/50">
-                    Tech Stack: Django, Python, HTML, CSS, JavaScript, PostgreSQL (or SQLite for development)
-                  </p>
-                  <p class="text-sm text-white/60 italic">
-                    More projects will be added as development progresses.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="reveal py-20">
-        <div class="max-w-6xl mx-auto px-6 space-y-12">
+        <div class="flex items-center gap-8 text-sm text-white/60">
           <div>
-            <p class="section-label">Experience</p>
-            <h2 class="section-title">Clinical rotations & tech builds</h2>
+            <p class="text-3xl text-white font-semibold">03+</p>
+            <p>Years building products</p>
           </div>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="timeline-time">2024 · Clinical Attachment</span>
-                <h3 class="text-xl font-semibold">
-                  Korle Bu Teaching Hospital
-                </h3>
-                <p class="text-white/70">
-                  Rotated through hematology, chemical pathology, and
-                  microbiology labs; optimized sample tracking processes and
-                  documented SOP improvements.
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="timeline-time">2023 — Present · Lead Builder</span>
-                <h3 class="text-xl font-semibold">MediLab LMS Development</h3>
-                <p class="text-white/70">
-                  Developing a comprehensive Laboratory Management System using Django
-                  to help medical laboratories manage patients, test requests, results,
-                  verification workflows, and reporting efficiently and securely.
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="timeline-time">2022 — Present · Community</span>
-                <h3 class="text-xl font-semibold">Tech & Health Communities</h3>
-                <p class="text-white/70">
-                  Facilitator with campus AI society, volunteered with health
-                  hackathons, mentored students exploring healthcare software.
-                </p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <span class="timeline-time">2021 — Present · Lab Research</span>
-                <h3 class="text-xl font-semibold">Research & Lab Work</h3>
-                <p class="text-white/70">
-                  Conducted assays, managed documentation, and introduced digital
-                  logging workflows to improve data accuracy.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Education -->
-      <section id="education" class="reveal py-20 bg-white/5">
-        <div class="max-w-6xl mx-auto px-6 space-y-12">
           <div>
-            <p class="section-label">Education</p>
-            <h2 class="section-title">Clinical science + continuous learning</h2>
+            <p class="text-3xl text-white font-semibold">08+</p>
+            <p>Research & lab projects</p>
           </div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <article class="education-card">
-              <div class="flex items-center justify-between">
-                <h3 class="text-2xl font-semibold">
-                  Klintaps University College
-                </h3>
-                <span class="text-sm text-white/60">BSc Med Lab Science</span>
-              </div>
-              <p class="text-white/70">
-                Coursework includes molecular biology, hematology, immunology,
-                microbiology, chemical pathology, instrumentation, and quality
-                management.
-              </p>
-            </article>
-            <article class="education-card">
-              <div class="flex items-center justify-between">
-                <h3 class="text-2xl font-semibold">AI & Tech Path</h3>
-                <span class="text-sm text-white/60">ALX · Google · Self-led</span>
-              </div>
-              <p class="text-white/70">
-                Backend engineering, cloud fundamentals, AI/ML foundations,
-                product thinking, and health tech innovation programs.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Gallery -->
-      <section id="gallery" class="reveal py-20">
-        <div class="max-w-6xl mx-auto px-6 space-y-12">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-              <p class="section-label">Gallery</p>
-              <h2 class="section-title">Snapshots from the field</h2>
-            </div>
-            <div class="flex gap-3">
-              <button class="gallery-btn" data-gallery-control="prev">Prev</button>
-              <button class="gallery-btn" data-gallery-control="next">Next</button>
-            </div>
-          </div>
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-            data-gallery-grid
-          >
-            <!-- Your gallery images -->
-            <div class="gallery-card">
-              <img src="assets/images/Lab%20work.jpg" alt="Lab Work" class="gallery-img" onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Lab Work</div>'"/>
-            </div>
-            <div class="gallery-card">
-              <img src="assets/images/TECH-EVENT.jpg" alt="Tech Event" class="gallery-img" onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Tech Event</div>'"/>
-            </div>
-            <div class="gallery-card">
-              <img src="assets/images/event.jpg" alt="Event" class="gallery-img" onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Event</div>'"/>
-            </div>
-            <div class="gallery-card">
-              <img src="assets/images/Volunter%201.jpg" alt="Volunteer" class="gallery-img" onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Volunteer 1</div>'"/>
-            </div>
-            <div class="gallery-card">
-              <img src="assets/images/Volunteer%202.jpg" alt="Volunteer" class="gallery-img" onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Volunteer 2</div>'"/>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="reveal py-20 bg-white/5">
-        <div class="max-w-6xl mx-auto px-6 space-y-12">
-          <div>
-            <p class="section-label">Contact</p>
-            <h2 class="section-title">Let’s build something meaningful</h2>
-          </div>
-          <div class="grid lg:grid-cols-[0.9fr,1.1fr] gap-12">
-            <div class="space-y-6">
-              <p class="text-white/70">
-                Reach out for collaborations, internships, speaking gigs, or
-                product/clinical innovation work.
-              </p>
-              <ul class="space-y-3 text-sm">
-                <li class="contact-item">
-                  <span data-lucide="mail"></span>
-                  <a href="mailto:abrahamkwesijames@gmail.com" class="contact-link"
-                    >Email — abrahamkwesijames@gmail.com</a
-                  >
-                </li>
-                <li class="contact-item">
-                  <span data-lucide="message-circle"></span>
-                  <a
-                    href="https://wa.me/233247980966"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="contact-link"
-                    >WhatsApp — +233247980966</a
-                  >
-                </li>
-                <li class="contact-item">
-                  <span data-lucide="linkedin"></span>
-                  <a href="https://www.linkedin.com/in/abraham-kwesi-james" target="_blank" rel="noreferrer" class="contact-link">LinkedIn — www.linkedin.com/in/abraham-kwesi-james</a>
-                </li>
-                <li class="contact-item">
-                  <span data-lucide="instagram"></span>
-                  <a href="https://www.instagram.com/ab_jamessss" target="_blank" rel="noreferrer" class="contact-link">Instagram — @ab_jamessss</a>
-                </li>
-                <li class="contact-item">
-                  <span data-lucide="music-4"></span>
-                  <a href="https://www.tiktok.com/@mrjayy_007" target="_blank" rel="noreferrer" class="contact-link">TikTok — @mrjayy_007</a>
-                </li>
-                <li class="contact-item">
-                  <span data-lucide="github"></span>
-                  <a href="https://github.com/MrJayy77" target="_blank" rel="noreferrer" class="contact-link">GitHub — @MrJayy77</a>
-                </li>
-              </ul>
-            </div>
-            <form
-              id="contactForm"
-              class="rounded-3xl border border-white/10 bg-brand-dark/50 p-8 space-y-4"
-            >
-              <div>
-                <label for="name" class="text-sm text-white/60">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  class="form-input"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div>
-                <label for="email" class="text-sm text-white/60">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  class="form-input"
-                  placeholder="name@email.com"
-                  required
-                />
-              </div>
-              <div>
-                <label for="message" class="text-sm text-white/60">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  class="form-input resize-none"
-                  placeholder="Tell me about your project"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit" class="btn-secondary w-full">
-                Send Message
-              </button>
-              <p id="formStatus" class="text-sm text-white/60"></p>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="border-t border-white/10">
-      <div
-        class="max-w-6xl mx-auto px-6 py-10 grid lg:grid-cols-3 gap-8 text-sm text-white/60"
-      >
-        <div>
-          <p class="text-white font-semibold">AKJ Portfolio</p>
-          <p class="mt-2 text-white/50">
-            Built with ❤️ using HTML, Tailwind, and JavaScript
-          </p>
-        </div>
-        <div>
-          <p class="text-white font-semibold mb-2">Quick Links</p>
-          <div class="flex flex-wrap gap-3">
-            <a href="#hero" class="footer-link">Hero</a>
-            <a href="#about" class="footer-link">About</a>
-            <a href="#skills" class="footer-link">Skills</a>
-            <a href="#projects" class="footer-link">Projects</a>
-            <a href="#experience" class="footer-link">Experience</a>
-            <a href="#education" class="footer-link">Education</a>
-            <a href="#gallery" class="footer-link">Gallery</a>
-            <a href="#contact" class="footer-link">Contact</a>
-          </div>
-        </div>
-        <div class="space-y-3">
-          <p class="text-white font-semibold">Follow</p>
-          <div class="flex gap-4 text-white">
-            <a href="#" aria-label="LinkedIn" class="footer-icon">in</a>
-            <a href="#" aria-label="Twitter" class="footer-icon">X</a>
-            <a href="#" aria-label="GitHub" class="footer-icon">GH</a>
-            <a href="#" aria-label="Instagram" class="footer-icon">IG</a>
-          </div>
-          <p class="text-white/40">© <span id="year"></span> Abraham Kwesi James</p>
         </div>
       </div>
-    </footer>
+      <div
+        class="relative w-full h-[420px] rounded-[32px] bg-gradient-to-b from-white/10 to-white/5 border border-white/10 overflow-hidden animate-float">
+        <!-- Replace 'hero-photo.jpg' with your actual image filename -->
+        <img src="assets/images/hero-photo.jpg" alt="Abraham Kwesi James"
+          class="w-full h-full object-cover rounded-[32px]"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div
+          class="absolute inset-0 flex items-center justify-center border-2 border-dashed border-white/20 rounded-[28px] m-4"
+          style="display: none;">
+          <span class="text-white/40 uppercase tracking-[0.3em] text-xs">Photo Placeholder - Add hero-photo.jpg to
+            assets/images/</span>
+        </div>
+      </div>
+    </section>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+    <!-- About -->
+    <section id="about" class="reveal py-20 bg-white/5">
+      <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-[1.2fr,0.8fr] gap-12">
+        <div class="space-y-6">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Health, code, and the future of care</h2>
+          <p class="leading-relaxed text-white/70">
+            I'm a Medical Laboratory Science student fascinated by how technology can transform the way we solve
+            problems across industries from diagnostics and research to agriculture, business, and beyond. My practice
+            blends scientific rigor with backend development, data engineering, and AI experimentation.
+          </p>
+          <p class="leading-relaxed text-white/70">
+            I build backend services, RESTful APIs, and AI-driven tools that streamline workflows, enable faster
+            decision-making, and help teams stay aligned. I explore machine learning and software solutions that tackle
+            real-world challenges, whether in healthcare, agriculture, finance, or business operations.
+          </p>
+          <p class="leading-relaxed text-white/70">
+            Long-term, I aim to create intelligent, scalable, and innovative systems that empower organizations to
+            leapfrog existing limitations, whether that's predictive analytics for labs, smart solutions for farms, or
+            interoperable tools for businesses and communities. I'm passionate about building products that drive
+            meaningful impact, wherever technology can make a difference.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-brand-dark/60 p-6 flex flex-col gap-6">
+          <!-- Replace 'about-photo.jpg' with your actual image filename -->
+          <img src="assets/images/about-photo.jpg" alt="About Abraham"
+            class="rounded-2xl border border-white/10 h-48 w-full object-cover"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div
+            class="rounded-2xl border border-white/10 h-48 bg-white/10 flex items-center justify-center text-white/40 text-xs tracking-[0.3em]"
+            style="display: none;">
+            About Photo - Add about-photo.jpg to assets/images/
+          </div>
+          <div class="space-y-2 text-sm">
+            <p class="uppercase text-white/50 tracking-wide">Focus Areas</p>
+            <ul class="space-y-1 text-white/80">
+              <li>Medical Laboratory Science</li>
+              <li>Backend & API Engineering</li>
+              <li>AI-assisted diagnostics</li>
+              <li>Lab Information Systems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="reveal py-20">
+      <div class="max-w-6xl mx-auto px-6 space-y-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p class="section-label">Skills</p>
+            <h2 class="section-title">Technical & behavioral arsenal</h2>
+          </div>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="space-y-6">
+            <h3 class="text-xl font-semibold">Technical Skills</h3>
+            <div class="space-y-5">
+              <!-- skill bars -->
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>Cybersecurity Basics</span>
+                  <span>90%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>Python</span>
+                  <span>70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>Backend Development</span>
+                  <span>75%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>AI / ML Basics</span>
+                  <span>70%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>Lab Information Systems</span>
+                  <span>88%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>Git & Collaboration</span>
+                  <span>82%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 82%"></div>
+                </div>
+              </div>
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>Cloud Basics</span>
+                  <span>65%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 65%"></div>
+                </div>
+              </div>
+              <div class="skill-track">
+                <div class="skill-header">
+                  <span>Databases (SQL)</span>
+                  <span>78%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-fill" style="width: 78%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <h3 class="text-xl font-semibold">Soft Skills</h3>
+            <ul class="grid sm:grid-cols-2 gap-4">
+              <li class="soft-skill">Problem solving</li>
+              <li class="soft-skill">Research & documentation</li>
+              <li class="soft-skill">Critical thinking</li>
+              <li class="soft-skill">Time management</li>
+              <li class="soft-skill">Adaptability</li>
+              <li class="soft-skill">Teamwork</li>
+              <li class="soft-skill">Attention to detail</li>
+              <li class="soft-skill">Scientific communication</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="reveal py-20 bg-white/5">
+      <div class="max-w-6xl mx-auto px-6 space-y-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p class="section-label">Projects</p>
+            <h2 class="section-title">Healthcare technology solutions</h2>
+          </div>
+          <a href="#contact" class="underline text-white/70 hover:text-brand-accent text-sm">Need a collaborator?</a>
+        </div>
+        <div class="flex justify-center">
+          <div class="w-full max-w-2xl">
+            <article class="project-card">
+              <div class="relative w-full rounded-2xl overflow-hidden shadow-glass"
+                style="aspect-ratio: 16 / 9; background: rgba(255, 255, 255, 0.02);">
+                <img src="assets/images/Medilab%20LMS.png" alt="MediLab LMS - Laboratory Management System"
+                  class="absolute inset-0 w-full h-full object-cover object-center"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                <div
+                  class="absolute inset-0 flex items-center justify-center bg-white/5 border border-dashed border-white/15 rounded-2xl"
+                  style="display: none;">
+                  <span class="text-white/40 uppercase tracking-[0.2em] text-xs">Screenshot Placeholder - Add Medilab
+                    LMS.png to assets/images/</span>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-2xl font-semibold">MediLab LMS</h3>
+                  <span class="px-3 py-1 rounded-full bg-brand-accent/20 text-brand-accent text-xs font-semibold">
+                    In Development
+                  </span>
+                </div>
+                <p class="text-white/70">
+                  MediLab LMS is a web-based Laboratory Management System currently under development using Django.
+                  It is designed to help medical laboratories manage patients, test requests, results, verification
+                  workflows, and reporting in an efficient and secure way.
+                </p>
+                <p class="text-sm text-white/50">
+                  Tech Stack: Django, Python, HTML, CSS, JavaScript, PostgreSQL (or SQLite for development)
+                </p>
+                <p class="text-sm text-white/60 italic">
+                  More projects will be added as development progresses.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="reveal py-20">
+      <div class="max-w-6xl mx-auto px-6 space-y-12">
+        <div>
+          <p class="section-label">Experience</p>
+          <h2 class="section-title">Clinical rotations & tech builds</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-time">2024 · Clinical Attachment</span>
+              <h3 class="text-xl font-semibold">
+                Korle Bu Teaching Hospital
+              </h3>
+              <p class="text-white/70">
+                Rotated through hematology, chemical pathology, and
+                microbiology labs; optimized sample tracking processes and
+                documented SOP improvements.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-time">2023 — Present · Lead Builder</span>
+              <h3 class="text-xl font-semibold">MediLab LMS Development</h3>
+              <p class="text-white/70">
+                Developing a comprehensive Laboratory Management System using Django
+                to help medical laboratories manage patients, test requests, results,
+                verification workflows, and reporting efficiently and securely.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-time">2022 — Present · Community</span>
+              <h3 class="text-xl font-semibold">Tech & Health Communities</h3>
+              <p class="text-white/70">
+                Facilitator with campus AI society, volunteered with health
+                hackathons, mentored students exploring healthcare software.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-time">2021 — Present · Lab Research</span>
+              <h3 class="text-xl font-semibold">Research & Lab Work</h3>
+              <p class="text-white/70">
+                Conducted assays, managed documentation, and introduced digital
+                logging workflows to improve data accuracy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="reveal py-20 bg-white/5">
+      <div class="max-w-6xl mx-auto px-6 space-y-12">
+        <div>
+          <p class="section-label">Education</p>
+          <h2 class="section-title">Clinical science + continuous learning</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <article class="education-card">
+            <div class="flex items-center justify-between">
+              <h3 class="text-2xl font-semibold">
+                Klintaps University College
+              </h3>
+              <span class="text-sm text-white/60">BSc Med Lab Science</span>
+            </div>
+            <p class="text-white/70">
+              Coursework includes molecular biology, hematology, immunology,
+              microbiology, chemical pathology, instrumentation, and quality
+              management.
+            </p>
+          </article>
+          <article class="education-card">
+            <div class="flex items-center justify-between">
+              <h3 class="text-2xl font-semibold">AI & Tech Path</h3>
+              <span class="text-sm text-white/60">ALX · Google · Self-led</span>
+            </div>
+            <p class="text-white/70">
+              Backend engineering, cloud fundamentals, AI/ML foundations,
+              product thinking, and health tech innovation programs.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="reveal py-20">
+      <div class="max-w-6xl mx-auto px-6 space-y-12">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <p class="section-label">Gallery</p>
+            <h2 class="section-title">Snapshots from the field</h2>
+          </div>
+          <div class="flex gap-3">
+            <button class="gallery-btn" data-gallery-control="prev">Prev</button>
+            <button class="gallery-btn" data-gallery-control="next">Next</button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" data-gallery-grid>
+          <!-- Your gallery images -->
+          <div class="gallery-card">
+            <img src="assets/images/Lab%20work.jpg" alt="Lab Work" class="gallery-img"
+              onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Lab Work</div>'" />
+          </div>
+          <div class="gallery-card">
+            <img src="assets/images/TECH-EVENT.jpg" alt="Tech Event" class="gallery-img"
+              onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Tech Event</div>'" />
+          </div>
+          <div class="gallery-card">
+            <img src="assets/images/event.jpg" alt="Event" class="gallery-img"
+              onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Event</div>'" />
+          </div>
+          <div class="gallery-card">
+            <img src="assets/images/Volunter%201.jpg" alt="Volunteer" class="gallery-img"
+              onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Volunteer 1</div>'" />
+          </div>
+          <div class="gallery-card">
+            <img src="assets/images/Volunteer%202.jpg" alt="Volunteer" class="gallery-img"
+              onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Volunteer 2</div>'" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="reveal py-20 bg-white/5">
+      <div class="max-w-6xl mx-auto px-6 space-y-12">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2 class="section-title">Let’s build something meaningful</h2>
+        </div>
+        <div class="grid lg:grid-cols-[0.9fr,1.1fr] gap-12">
+          <div class="space-y-6">
+            <p class="text-white/70">
+              Reach out for collaborations, internships, speaking gigs, or
+              product/clinical innovation work.
+            </p>
+            <ul class="space-y-3 text-sm">
+              <li class="contact-item">
+                <span data-lucide="mail"></span>
+                <a href="mailto:abrahamkwesijames@gmail.com" class="contact-link">Email —
+                  abrahamkwesijames@gmail.com</a>
+              </li>
+              <li class="contact-item">
+                <span data-lucide="message-circle"></span>
+                <a href="https://wa.me/233247980966" target="_blank" rel="noreferrer" class="contact-link">WhatsApp —
+                  +233247980966</a>
+              </li>
+              <li class="contact-item">
+                <span data-lucide="linkedin"></span>
+                <a href="https://www.linkedin.com/in/abraham-kwesi-james" target="_blank" rel="noreferrer"
+                  class="contact-link">LinkedIn — www.linkedin.com/in/abraham-kwesi-james</a>
+              </li>
+              <li class="contact-item">
+                <span data-lucide="instagram"></span>
+                <a href="https://www.instagram.com/ab_jamessss" target="_blank" rel="noreferrer"
+                  class="contact-link">Instagram — @ab_jamessss</a>
+              </li>
+              <li class="contact-item">
+                <span data-lucide="music-4"></span>
+                <a href="https://x.com/@james38869" target="_blank" rel="noreferrer" class="contact-link">X —
+                  @james38869</a>
+              </li>
+              <li class="contact-item">
+                <span data-lucide="github"></span>
+                <a href="https://github.com/abrahamkwesijames" target="_blank" rel="noreferrer"
+                  class="contact-link">GitHub —
+                  @abrahamkwesijames</a>
+              </li>
+            </ul>
+          </div>
+          <form id="contactForm" class="rounded-3xl border border-white/10 bg-brand-dark/50 p-8 space-y-4">
+            <div>
+              <label for="name" class="text-sm text-white/60">Name</label>
+              <input id="name" name="name" type="text" class="form-input" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="email" class="text-sm text-white/60">Email</label>
+              <input id="email" name="email" type="email" class="form-input" placeholder="name@email.com" required />
+            </div>
+            <div>
+              <label for="message" class="text-sm text-white/60">Message</label>
+              <textarea id="message" name="message" rows="5" class="form-input resize-none"
+                placeholder="Tell me about your project" required></textarea>
+            </div>
+            <button type="submit" class="btn-secondary w-full">
+              Send Message
+            </button>
+            <p id="formStatus" class="text-sm text-white/60"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-10 grid lg:grid-cols-3 gap-8 text-sm text-white/60">
+      <div>
+        <p class="text-white font-semibold">AKJ Portfolio</p>
+        <p class="mt-2 text-white/50">
+          Built with ❤️ using HTML, Tailwind, and JavaScript
+        </p>
+      </div>
+      <div>
+        <p class="text-white font-semibold mb-2">Quick Links</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#hero" class="footer-link">Hero</a>
+          <a href="#about" class="footer-link">About</a>
+          <a href="#skills" class="footer-link">Skills</a>
+          <a href="#projects" class="footer-link">Projects</a>
+          <a href="#experience" class="footer-link">Experience</a>
+          <a href="#education" class="footer-link">Education</a>
+          <a href="#gallery" class="footer-link">Gallery</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+      </div>
+      <div class="space-y-3">
+        <p class="text-white font-semibold">Follow</p>
+        <div class="flex gap-4 text-white">
+          <a href="https://www.linkedin.com/in/abraham-kwesi-james" target="_blank" rel="noreferrer"
+            aria-label="LinkedIn" class="footer-icon">in</a>
+          <a href="https://x.com/@james38869" target="_blank" rel="noreferrer" aria-label="X" class="footer-icon">X</a>
+          <a href="https://github.com/abrahamkwesijames" target="_blank" rel="noreferrer" aria-label="GitHub"
+            class="footer-icon">GH</a>
+          <a href="https://www.instagram.com/ab_jamessss" target="_blank" rel="noreferrer" aria-label="Instagram"
+            class="footer-icon">IG</a>
+        </div>
+        <p class="text-white/40">© <span id="year"></span> Abraham Kwesi James</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+  <noscript>
+    <style>
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+    <p style="text-align:center;padding:1rem;color:#fff;">Please enable JavaScript for the best experience.</p>
+  </noscript>
+</body>
+
 </html>
-
