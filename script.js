@@ -16,25 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const projectFormStatus = document.getElementById("projectFormStatus");
   const yearEl = document.getElementById("year");
 
-  // EmailJS Configuration
-  // Replace these placeholders with your actual EmailJS credentials:
-  // 1. Go to EmailJS Dashboard > Email Services to get your Service ID
-  // 2. Go to EmailJS Dashboard > Email Templates to get your Template ID
-  // 3. Go to EmailJS Dashboard > Account > API Keys for your Public Key
-  const EMAILJS_SERVICE_ID = "service_1sr29p3";
-  const EMAILJS_TEMPLATE_ID = "template_k3lm0k6";
-  const EMAILJS_PUBLIC_KEY = "m4XAVkJVOtR2w4jJ2";
-
-  // Initialize EmailJS
-  if (window.emailjs) {
-    try {
-      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-    } catch (error) {
-      // Fallback initialization
-      emailjs.init(EMAILJS_PUBLIC_KEY);
-    }
-  }
-
   /* ---------- Helpers ---------- */
   const setThemeIcon = (mode) => {
     if (!themeIcon) return;
@@ -139,30 +120,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- Contact form (EmailJS) ---------- */
-  if (contactForm && window.emailjs) {
+  /* ---------- Contact form (Formspree) ---------- */
+  if (contactForm) {
     contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       formStatus.textContent = "Sending...";
+      formStatus.style.color = "";
 
       const formData = new FormData(contactForm);
-      const templateParams = {
-        from_name: formData.get("name"),
-        reply_to: formData.get("email"),
-        message: formData.get("message"),
-      };
 
       try {
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-        formStatus.textContent = "Message sent. I will get back to you shortly.";
-        contactForm.reset();
+        const response = await fetch("https://formspree.io/f/xpqjbzde", {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (response.ok) {
+          formStatus.style.color = "#4ade80";
+          formStatus.textContent = "✓ Message sent! I'll get back to you shortly.";
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          const errorMsg = data.errors?.map((e) => e.message).join(", ") || "Submission failed.";
+          formStatus.style.color = "#f87171";
+          formStatus.textContent = errorMsg;
+        }
       } catch (error) {
+        formStatus.style.color = "#f87171";
         formStatus.textContent =
           "Something went wrong. Please email me directly at abrahamkwesijames@gmail.com";
       }
     });
-  } else if (contactForm) {
-    formStatus.textContent = "EmailJS failed to load. Refresh to try again.";
   }
 
   /* ---------- Misc ---------- */
