@@ -113,6 +113,9 @@
         <h1 class="text-4xl sm:text-5xl font-semibold leading-tight">
           Hi, I’m <span class="text-brand-accent">Abraham Kwesi James</span>
         </h1>
+        <p class="typewriter-line" id="typewriter-container">
+          I'm a&nbsp;<span class="typewriter-text text-brand-accent" id="typewriter-text"></span><span class="typewriter-cursor" id="typewriter-cursor">|</span>
+        </p>
         <p class="text-xl text-white/70">
           I'm a Medical Laboratory Science student and tech innovator passionate about solving real-world problems
           across healthcare, agriculture, business, and beyond.
@@ -122,9 +125,6 @@
           empower teams to do more.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="assets/cv.pdf" download
-            class="px-6 py-3 rounded-full bg-brand-accent text-black font-semibold inline-flex items-center gap-2 shadow-glass hover:-translate-y-0.5 transition">Download
-            CV</a>
           <a href="#contact"
             class="px-6 py-3 rounded-full border border-white/20 hover:border-brand-accent transition inline-flex items-center gap-2">Contact
             Me</a>
@@ -141,10 +141,10 @@
         </div>
       </div>
       <div
-        class="relative w-full h-[420px] rounded-[32px] bg-gradient-to-b from-white/10 to-white/5 border border-white/10 overflow-hidden animate-float">
+        class="relative w-full max-h-[420px] rounded-[32px] bg-gradient-to-b from-white/10 to-white/5 border border-white/10 overflow-hidden animate-float">
         <!-- Replace 'hero-photo.jpg' with your actual image filename -->
-        <img src="assets/images/hero-photo.jpg" alt="Abraham Kwesi James"
-          class="w-full h-full object-cover rounded-[32px]"
+        <img src="assets/images/hero.jpeg" alt="Abraham Kwesi James"
+          class="w-full h-full object-contain rounded-[32px]"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
         <div
           class="absolute inset-0 flex items-center justify-center border-2 border-dashed border-white/20 rounded-[28px] m-4"
@@ -181,7 +181,7 @@
         <div class="rounded-3xl border border-white/10 bg-brand-dark/60 p-6 flex flex-col gap-6">
           <!-- Replace 'about-photo.jpg' with your actual image filename -->
           <img src="assets/images/about-photo.jpg" alt="About Abraham"
-            class="rounded-2xl border border-white/10 h-48 w-full object-cover"
+            class="rounded-2xl border border-white/10 h-80 w-full object-cover"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div
             class="rounded-2xl border border-white/10 h-48 bg-white/10 flex items-center justify-center text-white/40 text-xs tracking-[0.3em]"
@@ -316,42 +316,39 @@
           </div>
           <a href="#contact" class="underline text-white/70 hover:text-brand-accent text-sm">Need a collaborator?</a>
         </div>
-        <div class="flex justify-center">
-          <div class="w-full max-w-2xl">
-            <article class="project-card">
-              <div class="relative w-full rounded-2xl overflow-hidden shadow-glass"
-                style="aspect-ratio: 16 / 9; background: rgba(255, 255, 255, 0.02);">
-                <img src="assets/images/Medilab%20LMS.png" alt="MediLab LMS - Laboratory Management System"
-                  class="absolute inset-0 w-full h-full object-cover object-center"
-                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                <div
-                  class="absolute inset-0 flex items-center justify-center bg-white/5 border border-dashed border-white/15 rounded-2xl"
-                  style="display: none;">
-                  <span class="text-white/40 uppercase tracking-[0.2em] text-xs">Screenshot Placeholder - Add Medilab
-                    LMS.png to assets/images/</span>
-                </div>
+        <div class="grid md:grid-cols-2 gap-8">
+
+          <!-- Project: MediLab LMS -->
+          <article class="project-card" id="project-medilab">
+            <div class="relative w-full rounded-2xl overflow-hidden shadow-glass"
+              style="aspect-ratio: 16 / 9; background: rgba(255, 255, 255, 0.02);">
+              <img src="assets/images/Medilab%20LMS.png" alt="MediLab LMS - Laboratory Management System"
+                class="absolute inset-0 w-full h-full object-cover object-center"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-white/5 border border-dashed border-white/15 rounded-2xl"
+                style="display: none;">
+                <span class="text-white/40 uppercase tracking-[0.2em] text-xs">Screenshot Placeholder - Add Medilab
+                  LMS.png to assets/images/</span>
               </div>
-              <div class="space-y-3">
-                <div class="flex items-center justify-between">
-                  <h3 class="text-2xl font-semibold">MediLab LMS</h3>
-                  <span class="px-3 py-1 rounded-full bg-brand-accent/20 text-brand-accent text-xs font-semibold">
-                    In Development
-                  </span>
-                </div>
-                <p class="text-white/70">
-                  MediLab LMS is a web-based Laboratory Management System currently under development using Django.
-                  It is designed to help medical laboratories manage patients, test requests, results, verification
-                  workflows, and reporting in an efficient and secure way.
-                </p>
-                <p class="text-sm text-white/50">
-                  Tech Stack: Django, Python, HTML, CSS, JavaScript, PostgreSQL (or SQLite for development)
-                </p>
-                <p class="text-sm text-white/60 italic">
-                  More projects will be added as development progresses.
-                </p>
+            </div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-semibold">MediLab LMS</h3>
+                <span class="px-3 py-1 rounded-full bg-brand-accent text-black text-xs font-semibold">
+                  Completed
+                </span>
               </div>
-            </article>
-          </div>
+              <p class="text-white/70">
+                MediLab LMS is a fully built web-based Laboratory Management System developed using Django.
+                It helps medical laboratories manage patients, test requests, results, verification
+                workflows, and reporting in an efficient and secure way.
+              </p>
+              <p class="text-sm text-white/50">
+                Tech Stack: Django, Python, HTML, CSS, JavaScript, PostgreSQL (or SQLite for development)
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -367,7 +364,7 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <span class="timeline-time">2024 · Clinical Attachment</span>
+              <span class="timeline-time">2025 — Present · Clinical Attachment</span>
               <h3 class="text-xl font-semibold">
                 Korle Bu Teaching Hospital
               </h3>
@@ -381,7 +378,20 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <span class="timeline-time">2023 — Present · Lead Builder</span>
+              <span class="timeline-time">2025 — Present · Founder</span>
+              <h3 class="text-xl font-semibold">JayTech Solutions</h3>
+              <p class="text-white/70">
+                Technology initiative focused on building digital solutions across
+                healthcare, agriculture, and education. Developing AI tools, backend
+                systems, and digital platforms that solve real-world problems in
+                emerging markets.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-time">2025 — Present · Lead Builder</span>
               <h3 class="text-xl font-semibold">MediLab LMS Development</h3>
               <p class="text-white/70">
                 Developing a comprehensive Laboratory Management System using Django
@@ -393,7 +403,7 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <span class="timeline-time">2022 — Present · Community</span>
+              <span class="timeline-time">2025 — Present · Community</span>
               <h3 class="text-xl font-semibold">Tech & Health Communities</h3>
               <p class="text-white/70">
                 Facilitator with campus AI society, volunteered with health
@@ -404,7 +414,7 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <span class="timeline-time">2021 — Present · Lab Research</span>
+              <span class="timeline-time">2025 — Present · Lab Research</span>
               <h3 class="text-xl font-semibold">Research & Lab Work</h3>
               <p class="text-white/70">
                 Conducted assays, managed documentation, and introduced digital
@@ -485,6 +495,14 @@
           <div class="gallery-card">
             <img src="assets/images/Volunteer%202.jpg" alt="Volunteer" class="gallery-img"
               onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Volunteer 2</div>'" />
+          </div>
+          <div class="gallery-card">
+            <img src="assets/images/Lab%20Day.jpeg" alt="Lab Day" class="gallery-img"
+              onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Lab Day</div>'" />
+          </div>
+          <div class="gallery-card">
+            <img src="assets/images/lab.jpeg" alt="Lab" class="gallery-img"
+              onerror="this.parentElement.innerHTML='<div style=\'display: grid; place-items: center; height: 100%; color: rgba(255,255,255,0.4); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.2em;\'>Lab</div>'" />
           </div>
         </div>
       </div>

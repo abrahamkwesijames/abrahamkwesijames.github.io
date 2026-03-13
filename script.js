@@ -159,5 +159,69 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- Misc ---------- */
   yearEl && (yearEl.textContent = new Date().getFullYear());
   window.lucide?.createIcons();
+
+  /* ---------- Typewriter animation ---------- */
+  const typewriterEl = document.getElementById("typewriter-text");
+  const cursorEl = document.getElementById("typewriter-cursor");
+
+  if (typewriterEl && cursorEl) {
+    const roles = [
+      "Medical Laboratory Science Student",
+      "Backend Web Developer",
+      "AI Developer",
+      "HealthTech Innovator",
+      "Technology Problem Solver",
+    ];
+
+    const TYPING_SPEED = 70;      // ms per character when typing
+    const DELETING_SPEED = 40;    // ms per character when deleting
+    const PAUSE_AFTER_TYPING = 1800; // ms to hold completed word
+    const PAUSE_AFTER_DELETING = 400; // ms before typing next word
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typewriterTick() {
+      const currentRole = roles[roleIndex];
+
+      // Pause cursor blink while actively typing/deleting
+      cursorEl.style.animationPlayState = "paused";
+      cursorEl.style.opacity = "1";
+
+      if (!isDeleting) {
+        // Typing forward
+        charIndex++;
+        typewriterEl.textContent = currentRole.substring(0, charIndex);
+
+        if (charIndex === currentRole.length) {
+          // Finished typing – pause, then start deleting
+          isDeleting = true;
+          cursorEl.style.animationPlayState = "running";
+          setTimeout(typewriterTick, PAUSE_AFTER_TYPING);
+          return;
+        }
+        setTimeout(typewriterTick, TYPING_SPEED);
+      } else {
+        // Deleting backward
+        charIndex--;
+        typewriterEl.textContent = currentRole.substring(0, charIndex);
+
+        if (charIndex === 0) {
+          // Finished deleting – move to next role
+          isDeleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+          cursorEl.style.animationPlayState = "running";
+          setTimeout(typewriterTick, PAUSE_AFTER_DELETING);
+          return;
+        }
+        setTimeout(typewriterTick, DELETING_SPEED);
+      }
+    }
+
+    // Start the typewriter after a brief initial delay
+    setTimeout(typewriterTick, 600);
+  }
 });
+
 

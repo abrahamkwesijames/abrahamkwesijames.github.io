@@ -3,6 +3,45 @@
   color-scheme: dark;
 }
 
+/* ---- Typewriter animation ---- */
+.typewriter-line {
+  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  min-height: 2em;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.typewriter-text {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  color: #4ade80;
+  font-weight: 300;
+  margin-left: 1px;
+  animation: blink-cursor 530ms steps(1) infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.light-mode .typewriter-line {
+  color: rgba(5, 5, 5, 0.7);
+}
+
+.light-mode .typewriter-text,
+.light-mode .typewriter-cursor {
+  color: #22c55e;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -27,7 +66,7 @@ body {
   #gallery {
     display: block !important;
   }
-  
+
   #gallery.reveal.visible {
     opacity: 1 !important;
     transform: translateY(0) !important;
@@ -206,6 +245,9 @@ body {
   transform: translateY(-6px);
   border-color: rgba(74, 222, 128, 0.5);
 }
+
+
+
 
 .project-cover {
   border-radius: 1.5rem;
@@ -388,4 +430,3 @@ body {
     min-height: 280px;
   }
 }
-
